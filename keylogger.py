@@ -1,11 +1,15 @@
 import pynput
 from pynput.keyboard import Key, Listener
 
+# Do thing when key is pressed
 def on_press(key):
-    pass
+    print("Pressed",key)
 
+# Do other thing when key is released
 def on_release(key):
-    pass
+    if key == Key.esc:
+        return False
 
+# Main listener
 with Listener(on_press=on_press, on_release=on_release) as listener:
-    pass
+    listener.join()
